@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evara - My Accounts</title>
+    
+    <!-- Meta Description -->
+    <meta name="description" content="Discover luxury at Evara! Explore exquisite home decor & lifestyle essentials. Elevate your space with timeless elegance. Shop now!">
+    
+    <!-- Keywords -->
+    <meta name="keywords" content="Luxury Home Decor, Premium Lifestyle Essentials, Elegant Furnishings, Stylish Homeware, Exclusive Interior Accessories, Chic Decor Accents, Unique Home Furnishings">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow">
+    
+    <!-- OG (Open Graph) Tags -->
+    <meta property="og:title" content="Evara - Unleashing Elegance in Every Purchase | Premium Home Decor & Lifestyle Essentials">
+    <meta property="og:description" content="Discover luxury at Evara! Explore exquisite home decor & lifestyle essentials. Elevate your space with timeless elegance. Shop now!">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:title" content="Evara - Unleashing Elegance in Every Purchase | Premium Home Decor & Lifestyle Essentials">
+    <meta name="twitter:description" content="Discover luxury at Evara! Explore exquisite home decor & lifestyle essentials. Elevate your space with timeless elegance. Shop now!">
+    <!-- =================================================================
+                             Link Custom CSS File
+    ================================================================== -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- =================================================================
+                             Link Favicon
+    ================================================================== -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+
+    <!-- =================================================================
+                             SWIPER JS CDN
+    ================================================================== -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- =================================================================
+                             Remix Icon CDN
+    ================================================================== -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ================================================ HEADER ================================================ -->
+    <header class="header" id="header">
+        <div class="header-top"> </div>
+        <nav class="navbar flexitem container">
+            <a href="#" class="nav-logo">
+                <img src="assets/images/logo.svg" alt="" class="nav-logo-img">
+            </a>
+
+          <input type="text" placeholder="Search Products..." class="form-input">
+          <img src="assets/images/search.png" alt="">          
+          <div class="nav-menu flexitem" id="nav-menu"><a href="index.html" class="nav-link">&nbsp; &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp;Home</a>
+                <ul class="nav-list flexitem">
+                  <li class="nav-item"> </li>
+                    <li class="nav-item"> </li>
+                    <li class="nav-item">
+                        <a href="accounts.html" class="nav-link active-link">&nbsp; &nbsp; &nbsp; &nbsp;  Account</a>
+                    </li>
+                    <li class="nav-item"> </li>
+                    <li class="nav-item">
+                        <a href="login-register.html" class="nav-link">&nbsp; &nbsp; &nbsp; Login</a>
+                    </li>
+            </ul>
+
+                <div class="header-search">
+<button class="search-btn"> </button>
+            </div>
+          </div>
+
+            <div class="header-user-action flexitem">
+                <a href="whishlist.html" class="header-action-btn">
+                <img src="assets/images/icon-heart.svg" alt="">
+                    <span class="count">3</span>
+                </a>
+                <a href="cart.html" class="header-action-btn">
+                <img src="assets/images/icon-cart.svg" alt="">
+                    <span class="count">5</span>
+                </a>
+            </div>
+      </nav>
+    </header>
+
+    <!-- ================================================ MAIN ================================================ -->
+    <main class="main">
+        <!-- ================================================ BREADCRUMB ================================================ -->
+        <section class="breadcrumb"> </section>
+
+        <!-- ================================================ COMPARE ================================================ -->
+        <section class="accounts section-lg">
+            <div class="accounts-container container grid">
+                <div class="account-tabs">
+                    <p class="account-tab active-tab" data-target="#dashboard">
+                        <i class="ri-dashboard-line"></i> Dashboard
+                    </p>
+                    <p class="account-tab" data-target="#orders">
+                        <i class="ri-shopping-bag-line"></i> Orders
+                    </p>
+                    <p class="account-tab" data-target="#update-profile">
+                        <i class="ri-user-line"></i> Update Profile
+                    </p>
+                    <p class="account-tab" data-target="#address">
+                        <i class="ri-map-pin-line"></i> My Address
+                    </p>
+                    <p class="account-tab" data-target="#change-password">
+                        <i class="ri-lock-2-line"></i> Change Password
+                    </p>
+                    <p class="account-tab">
+                        <i class="ri-logout-box-line"></i> Logout
+                    </p>
+                </div>
+
+                <div class="tabs-content">
+                    <div class="tab-content active-tab" content id="dashboard">
+                        <h3 class="tab-header">Hello Rosie</h3>
+                        <div class="tab-body">
+                            <p class="tab-description">
+                                From your account dashboard, you can easily check & veiw your recent orders, manage your shipping and billing addresses and edit your password and account details.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" content id="orders">
+                        <h3 class="tab-header">Your Orders</h3>
+                        <div class="tab-body">
+                            <table class="placed-order-table">
+                                <tr>
+                                    <th>Orders</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Total</th>
+                                    <th>Actions</th>
+                                </tr>
+                                <tr>
+                                    <td>#1345</td>
+                                    <td>December 15, 2023</td>
+                                    <td>Processing</td>
+                                    <td>$125.00</td>
+                                    <td><a href="#" class="view-order"></a>View</td>
+                                </tr>
+                                <tr>
+                                    <td>#1452</td>
+                                    <td>November 29, 2023</td>
+                                    <td>Completed</td>
+                                    <td>$335.00</td>
+                                    <td><a href="#" class="view-order"></a>View</td>
+                                </tr>
+                                <tr>
+                                    <td>#1236</td>
+                                    <td>December 9, 2023</td>
+                                    <td>Completed</td>
+                                    <td>$78.00</td>
+                                    <td><a href="#" class="view-order"></a>View</td>
+                                </tr>
+                                <tr>
+                                    <td>#1489</td>
+                                    <td>December 16, 2023</td>
+                                    <td>Completed</td>
+                                    <td>$145.00</td>
+                                    <td><a href="#" class="view-order"></a>View</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" content id="update-profile">
+                        <h3 class="tab-header">Update Profile</h3>
+
+                        <div class="tab-body">
+                            <form action="" class="form grid">
+                                <input type="text" placeholder="Username" class="form-input">
+
+                                <div class="form-btn">
+                                    <button class="btn btn-md">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" content id="address">
+                        <h3 class="tab-header">Shipping Address</h3>
+
+                        <div class="tab-body">
+                            <address class="address">
+                                3522 Interstate <br>
+                                75 Business Spur, <br>
+                                Sault Ste, <br>
+                                Marie, MI 49783
+                            </address>
+                            <p class="city">New York</p>
+                            <a href="#" class="edit">Edit</a>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" content id="change-password">
+                        <h3 class="tab-header">Change Password</h3>
+
+                        <div class="tab-body">
+                            <form action="" class="form grid">
+                                <input type="text" placeholder="Current Password" class="form-input">
+                                <input type="text" placeholder="New Password" class="form-input">
+                                <input type="text" placeholder="Confirm Password" class="form-input">
+
+                                <div class="form-btn">
+                                    <button class="btn btn-md">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================ NEWSLETTER ================================================ -->
+        <section class="newsletter section"> </section>
+    </main>
+
+    <!-- ================================================ FOOTER ================================================ -->
+    <footer class="footer container">
+        <div class="footer-container grid">
+            <div class="footer-content">
+                <a href="index.html" class="footer-logo">
+                </a>
+              
+              
+              <div class="footer-social">
+                <h4 class="footer-subtitle">Follow Us :</h4>
+
+                    <div class="footer-social-links flexitem">
+                        <a href="#">
+                            <img src="assets/images/icon-facebook.svg" alt="" class="footer-social-icon">
+                        </a>
+                        <a href="#">
+                        </a>
+                        <a href="#">
+                            <img src="assets/images/icon-instagram.svg" alt="" class="footer-social-icon">
+                        </a>
+                        <a href="#">
+                        </a>
+                        <a href="#">
+                        </a>
+                    </div>
+                </div>
+            </div>
+<div class="footer-content">
+<ul class="footer-links">
+        <li><a href="#" class="footer-link">About Us</a></li>
+                    <li><a href="#" class="footer-link">Delivery Information</a></li>
+                    <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                    <li><a href="#" class="footer-link">Terms & Conditions</a></li>
+                    <li><a href="#" class="footer-link">Contact Us</a></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="footer-content">
+                <h3 class="footer-title">Secured Payment Gateway</h3>
+
+                <img src="assets/images/payment-method.png" alt="" class="payment-img">
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright">&copy; 2025 Deleens Home Bake. All rights reserved.</p>
+</div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- =================================================================
+                             Link Custom JS File
+    ================================================================== -->
+    <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>
