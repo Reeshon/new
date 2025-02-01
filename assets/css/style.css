@@ -449,14 +449,14 @@ table {
   line-height: 2.58;
 }
 .product-badge {
-  position: absolute;
-  left: 1.25rem;
-  top: 1.25rem;
-  background: var(--first-color);
-  color: var(--body-color);
-  padding: 0.25rem 0.625rem;
-  border-radius: 2.5rem;
-  font-size: var(--tiny-font-size);
+    position: absolute;
+    left: 105px;
+    top: 43px;
+    background: var(--first-color);
+    color: var(--body-color);
+    padding: 0.25rem 0.625rem;
+    border-radius: 2.5rem;
+    font-size: var(--tiny-font-size);
 }
 .product-badge.light-pink {
   background-color: hsl(341, 100%, 73%);
@@ -1615,4 +1615,8 @@ th,
   .header-search .form-input {
     padding-inline: 0;
   }
+}
+
+.hide-home {
+  display: none;
 }
