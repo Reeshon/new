@@ -227,7 +227,7 @@ table {
   color: var(--text-color);
 }
 .nav-logo-img {
-  width: 150px;
+    width: 200px;
 }
 .navbar {
   height: calc(var(--header-height) + 2.5rem);
