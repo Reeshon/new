@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> <!-- Prevent zooming -->
+    <style>
+        body {
+            overflow: hidden; /* Prevent zooming on desktop */
+        }
+    </style>
     <!-- Immediate redirect -->
     <meta http-equiv="refresh" content="0; url='shop.html'" />
     <title>Page Redirect</title>
@@ -18,13 +23,13 @@
       </a>
     </div>
     <div class="header-search">
-      <input type="text" placeholder="Search Products..." class="form-input" id="searchInput">
+      <input type="text" placeholder="Search Products..." class="form-input" id="searchInput" autocomplete="off">
       <div id="searchSuggestions" class="suggestions-dropdown"></div>
       <button class="search-btn">
         <img src="assets/images/search.png" alt="">
       </button>
     </div>
-    <button onclick="location.href='cart.html'" class="header-cart-btn" aria-label="View Cart">
+    <button onclick="location.href='../store/opencart/'" class="header-cart-btn" aria-label="View Cart">
       <img src="assets/images/icon-cart.svg" alt="Cart">
       <span class="cart-count">0</span>
     </button>
