@@ -12,32 +12,24 @@
 </head>
 <body>
   <header class="header" id="header">
-    <nav class="navbar flexitem container">
+    <nav class="navbar container">
       <div class="nav-logo">
-        <!-- Changed to action button with logo -->
-        <button class="logo-action-btn" onclick="location.href='shop.html'" aria-label="Go to Shop">
+        <a href="shop.html">
           <img src="assets/images/logo.png" alt="Logo" class="nav-logo-img">
+        </a>
+      </div>
+      
+      <div class="header-search">
+        <input type="text" placeholder="Search Products..." class="form-input">
+        <button class="search-btn">
+          <img src="assets/images/search.png" alt="">
         </button>
       </div>
-      <div class="search-bar">
-        <div class="header-search">
-          <input type="text" placeholder="Search Products..." class="form-input">
-          <button class="search-btn">
-            <img src="assets/images/search.png" alt="">
-          </button>
-        </div>
-      </div>
-      <div class="actions">
-        <div class="header-user-action flexitem">
-          <a href="cart.html" class="header-action-btn">            </a>
-        </div>
-      </div>
-      <div class="header-user-action flexitem">
-        <button onclick="location.href='cart.html'" class="header-cart-btn" aria-label="View Cart">
-          <img src="assets/images/icon-cart.svg" alt="Cart">
-          <span class="cart-count">0</span>
-        </button>
-      </div>
+      
+      <button onclick="location.href='cart.html'" class="header-cart-btn" aria-label="View Cart">
+        <img src="assets/images/icon-cart.svg" alt="Cart">
+        <span class="cart-count">0</span>
+      </button>
     </nav>
   </header>
   <main class="main">

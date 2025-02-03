@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
 /*=============== VARIABLES CSS ===============*/
 :root {
-  --header-height: 70px; /* Increased header height from 52.18px to 70px */
+  --header-height: 100px; /* Increased to accommodate logo */
 
   /*========== Colors ==========*/
   --first-color: hsl(176, 88%, 27%);
@@ -78,7 +78,8 @@ body {
   font-weight: var(--weight-400);
 }
 body {
-  background: var(--body-color);
+  /* Changed: use a background image to reveal the blur */
+  background: url('../images/background.jpg') no-repeat center center/cover;
 }
 h1,
 h2,
@@ -120,8 +121,32 @@ table {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
-  padding-left: 200px; /* Adjust based on new logo size */
 }
+
+.product.section-lg.container {
+  max-width: 1100px;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(5, 200px); /* Fixed 5 columns of 200px each */
+  gap: 10px; /* Reduced from 20px */
+  justify-content: center;
+  padding: 0;
+  margin: 0 auto;
+  width: 100%; /* Changed from fit-content to 100% */
+  max-width: 1100px; /* Added max-width to match container */
+}
+
+.product-item {
+  width: 200px; /* Fixed width */
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
 .grid {
   display: grid;
   gap: 1.5rem;
@@ -231,34 +256,38 @@ table {
   /* margin-right: 20px; */
   position: relative;
   top: -5px; /* move search bar up slightly */
+  margin: 0 auto;
 }
 
 .header {
   position: fixed;
-  top: 0; /* Changed from 40px back to 0 */
+  top: 0;
   left: 0;
   width: 100%;
-  padding-top: 10px; /* Reduced from 15px */
-  padding-bottom: 10px; /* Reduced from 15px */
-  background: none; /* removed background */
-  z-index: 1000;
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
-  border-bottom: none;
-  background-color: rgba(255, 255, 255, 0.5); /* changed: set to 50% transparency */
-  margin-bottom: 180px; /* fix: increased margin */
-  mix-blend-mode: normal; /* ensures proper blending */
-  isolation: isolate; /* added to prevent opacity stacking */
   height: var(--header-height);
+  z-index: 1000;
+  border: none;
+  padding: 0; /* Remove padding to prevent zoom issues */
 }
+
+/* Added new pseudo-element for blur gradient at the top */
 .header::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.3); /* adjust alpha as needed */
-  z-index: -1; /* added to keep pseudo-element behind header content */
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0));
+  backdrop-filter: blur(6px); /* Reduced blur by 20% */
+  -webkit-backdrop-filter: blur(6px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Remove the ::after pseudo-element */
+.header::after {
+  content: none;
 }
 
 /* Ensure back button in header is visible */
@@ -272,25 +301,26 @@ table {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  height: var(--header-height);
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  padding: 0 20px; /* Move padding to navbar */
+  width: 100%;
 }
 
 /* Logo styling */
 .nav-logo {
-  padding: 10px;
-  position: absolute;
-  left: 15px;
-  transform: translateY(-50%);
+  position: fixed; /* Change to fixed */
+  top: 10px;
+  left: 20px;
+  padding: 0;
+  margin: 0;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: auto;
   max-width: none;
-  margin: 0;
   z-index: 1001; /* Ensure logo is above other header elements */
-  top: 55%; /* move logo down slightly */
 }
 
 /* Optionally remove or comment out the full circle if not needed */
@@ -332,18 +362,39 @@ table {
   display: flex;
   align-items: center;
   gap: 15px;
+  position: relative;
+  z-index: 1001;
+  flex: 2;
+  justify-content: center;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-left: 100px; /* Adjust based on logo width */
+  top: 0;
 }
 
 /* Right side header content */
-.header-right {
+.header-cart-btn {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
   margin-left: auto;
   display: flex;
   align-items: center;
   gap: 15px;
+  position: fixed; /* Change to fixed */
+  top: 10px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 8px;
 }
 
 /* Adjust main content to account for fixed header */
 .main {
+  position: relative;
+  z-index: 1;
   margin-top: calc(var(--header-height) + 20px);
   min-height: calc(100vh - var(--header-height));
 }
@@ -351,7 +402,7 @@ table {
 /* Media queries for responsive layout */
 @media screen and (max-width: 968px) {
   .header {
-    padding: 10px 15px;
+    padding: 10px 15px 0;
   }
   
   .nav-menu {
@@ -376,7 +427,10 @@ table {
 
 @media screen and (max-width: 768px) {
   .header-search {
-    display: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px; /* Add some space below the logo on smaller screens */
   }
   
   .nav-menu {
@@ -388,6 +442,38 @@ table {
     height:50%;
     padding: 2rem;
     transition: .4s;
+  }
+
+  .nav-logo {
+    top: 5px;
+    left: 10px;
+  }
+
+  .nav-logo-img {
+    max-width: 60px; /* Adjust for smaller screens */
+  }
+
+  .header-search {
+    margin-left: 80px; /* Adjust for smaller screens */
+  }
+
+  .header-cart-btn {
+    top: 5px;
+    right: 10px;
+  }
+
+  .products-container {
+    grid-template-columns: repeat(2, 200px);
+    gap: 10px;
+  }
+  
+  .product-item {
+    width: 200px;
+  }
+
+  .header-search {
+    max-width: 300px;
+    padding: 0 60px; /* Give space for logo and cart */
   }
 }
 
@@ -403,7 +489,7 @@ table {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s var(--transition);
+  transition: all 0.3s var (--transition);
   mix-blend-mode: normal;
   margin-top: 20px; /* Increased from 10px to 20px for additional downward shift */
 }
@@ -411,33 +497,12 @@ table {
 /* Adjust logo image size */
 .nav-logo-img {
   width: 100%;
-  max-width: 112.5px; /* Reduced by 25% from 150px */
+  max-width: 80px; /* Adjust as needed */
   height: auto;
   margin-left: 15px; /* Add a small left margin for spacing from the edge */
 }
 
-/* Header background - kept consistent with logo */
-.header {
-  /* ...existing code... */
-  background-color: rgba(255, 255, 255, 0.5); /* changed: set to 50% transparency */
-  /* ...existing code... */
-}
-
 /* Cart button styling */
-.header-cart-btn {
-  position: fixed;
-  top: 8px; /* Adjusted from 15px */
-  right: 20px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  z-index: 1001;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
 .header-cart-btn img {
   width: 24px;
   height: 24px;
@@ -503,7 +568,7 @@ table {
 }
 .category-item {
   text-align: center;
-  border: 1px solid var(--border-color);
+  border: 1px solid var (--border-color);
   padding: 0.635rem 0.635rem 1.25rem;
   border-radius: 1.25rem;
 }
@@ -543,12 +608,23 @@ table {
   font-weight: 500;
 }
 .products-container {
-  grid-template-columns: repeat(4, 1fr);
+  display: grid;
+  grid-template-columns: repeat(5, 200px); /* Fixed 5 columns of 200px each */
+  gap: 10px; /* Reduced from 20px */
+  justify-content: center; /* Changed from start to center */
+  padding: 0 15px;
+  margin: 0 auto;
+  width: 100%; /* Container will fit grid exactly */
+  max-width: 1100px; /* Added max-width to match container */
 }
 .product-item {
   border: 1px solid var(--border-color);
   border-radius: 1.5rem;
   transition: all 0.2s var(--transition);
+  width: 200px; /* Fixed width */
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 .product-banner {
   padding: 0.625rem 0.75rem 0.75rem;
@@ -961,7 +1037,7 @@ table {
                         BREADCRUMB 
 ===================================================== */
 .breadcrumb {
-  background: var(--container-color);
+  background: var (--container-color);
   padding-block: 1.5rem;
 }
 .breadcrumb-list {
@@ -978,8 +1054,8 @@ table {
   margin-bottom: 2.5rem;
 }
 .total-products span {
-  color: var(--first-color);
-  font-weight: var(--weight-600);
+  color: var (--first-color);
+  font-weight: var (--weight-600);
 }
 .pagination {
   display: flex;
@@ -993,7 +1069,7 @@ table {
   line-height: 35px;
   text-align: center;
   border-radius: 0.25rem;
-  font-size: var(--small-font-size);
+  font-size: var (--small-font-size);
   color: var (--text-color);
   font-weight: var (--weight-700);
   transition: all 0.15s var(--transition);
@@ -1067,7 +1143,7 @@ table {
 .detials-color-title,
 .detials-size-title {
   font-size: var(--small-font-size);
-  font-weight: var(--weight-600);
+  font-weight: var (--weight-600);
 }
 .color-list,
 .size-list {
@@ -1448,7 +1524,7 @@ th,
   color: var(--body-color);
 }
 .account-tab:not(:last-child) {
-  border-bottom: 1px solid var(--border-color-alt);
+  border-bottom: 1px solid var (--border-color-alt);
 }
 .tab-content {
   border: 1px solid var(--border-color-alt);
@@ -1468,7 +1544,7 @@ th,
 }
 .placed-order-table tr th,
 .placed-order-table tr td {
-  border: 1px solid var(--border-color-alt);
+  border: 1px solid var (--border-color-alt);
   padding: 0.5rem;
   font-size: var (--small-font-size);
 }
@@ -1485,7 +1561,7 @@ th,
   margin-bottom: 0.25rem;
 }
 .edit {
-  font-size: var(--small-font-size);
+  font-size: var (--small-font-size);
 }
 
 /* ====================================================
@@ -1505,8 +1581,10 @@ th,
 }
 
 @media screen and (max-width: 1200px) {
-  .container {
+  .container,
+  .product.section-lg.container {
     max-width: 950px;
+    padding: 0 15px;
   }
   .header-top {
     display: none;
@@ -1622,12 +1700,20 @@ th,
   .details-action {
     margin-bottom: 2.75rem;
   }
+  .product.section-lg.container {
+    max-width: 800px;
+  }
+  .products-container {
+    grid-template-columns: repeat(4, 200px);
+    gap: 10px;
+  }
 }
 
-/* For medium devices */
 @media screen and (max-width: 992px) {
-  .container {
-    max-width: 800px;
+  .container,
+  .product.section-lg.container {
+    max-width: 720px;
+    padding: 0 15px;
   }
   .home-container,
   .deals-container,
@@ -1657,6 +1743,14 @@ th,
   .details-container {
     grid-template-columns: repeat(2, 1fr);
   }
+  .products-container {
+    grid-template-columns: repeat(3, 200px);
+    gap: 10px;
+  }
+  
+  .product-item {
+    width: 200px;
+  }
   .login,
   .register {
     padding: 1.25rem;
@@ -1685,11 +1779,16 @@ th,
   .table tr td:nth-child(6) {
     width: 100px;
   }
+  .product.section-lg.container {
+    max-width: 700px;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .container {
-    max-width: 650px;
+  .container,
+  .product.section-lg.container {
+    max-width: 540px;
+    padding: 0 10px;
   }
   .products-container,
   .showcase-container,
@@ -1705,10 +1804,27 @@ th,
   .compare-table tr td {
     display: block;
   }
+  .product.section-lg.container {
+    max-width: 600px;
+  }
+  .products-container {
+    grid-template-columns: repeat(2, 200px);
+    gap: 10px;
+  }
+  
+  .product-item {
+    width: 200px;
+  }
 }
 
 /* For small devices */
 @media screen and (max-width: 576px) {
+  .container,
+  .product.section-lg.container {
+    max-width: none;
+    width: 100%;
+    padding: 0 10px;
+  }
   .category-item {
     padding-bottom: 1rem;
   }
@@ -1761,6 +1877,14 @@ th,
     flex-direction: column;
     align-items: center;
   }
+  .products-container {
+    grid-template-columns: repeat(2, 160px);
+    gap: 10px; /* Slightly smaller gap for mobile */
+  }
+  
+  .product-item {
+    width: 160px;
+  }
 }
 
 @media screen and (max-width: 350px) {
@@ -1789,6 +1913,14 @@ th,
   }
   .header-search .form-input {
     padding-inline: 0;
+  }
+  .products-container {
+    grid-template-columns: repeat(1, 200px);
+    gap: 10px;
+  }
+  
+  .product-item {
+    width: 200px;
   }
 }
 
