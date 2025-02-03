@@ -7,7 +7,7 @@
   position: relative; /* Ensure pseudo-element is positioned relative to header */
   background-color: rgba(255, 255, 255, 0.8); /* Example semi-transparent background */
   width: 100%;
-  height: var(--header-height);
+  height: 60px; /* Adjusted height for mobile */
   z-index: 1000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -39,8 +39,8 @@
 }
 
 .header-cart-btn img {
-  width: 24px;
-  height: 24px;
+  width: 20px; /* Adjust cart icon size for mobile */
+  height: 20px; /* Adjust cart icon size for mobile */
   transition: transform 0.3s ease;
 }
 
@@ -79,10 +79,33 @@
 @media screen and (max-width: 768px) {
   .products-container {
     /* ...existing code... */
-    column-gap: 0rem !important;
-    row-gap: 0.25rem !important;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+    column-gap: 0.5rem; /* Adjust gap for mobile */
+    row-gap: 1rem; /* Adjust gap for mobile */
     /* ...existing code... */
   }
+}
+
+/* Prevent zooming */
+html {
+  touch-action: manipulation;
+  -ms-touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.header .nav-logo-img {
+  max-width: 50px; /* Adjust logo size for mobile */
+}
+
+.header-search {
+  /* ...existing code... */
+  max-width: 200px; /* Adjust search bar size for mobile */
+  /* ...existing code... */
 }
 
 // ...existing code...
