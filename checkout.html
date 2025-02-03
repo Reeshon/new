@@ -48,62 +48,23 @@
 
     <!-- ================================================ HEADER ================================================ -->
     <header class="header" id="header">
-        <div class="header-top">
-            <div class="header-container flexitem container">
-                <div class="header-contact">
-                    <span>(+01) - 2345 - 6789</span>
-                    <span> Our Location</span>
-                </div>
-                <p class="header-alert-news">
-                    Get 30% extra discount on your first order.
-                </p>
-                <a href="login-register.html" class="header-top-action">
-                    Log in/Sign Up
+        <nav class="navbar container">
+            <div class="nav-logo">
+                <a href="shop.html">
+                    <img src="assets/images/logo.png" alt="Logo" class="nav-logo-img">
                 </a>
             </div>
-        </div>
-        <nav class="navbar flexitem container">
-            <a href="#" class="nav-logo">
-                <img src="assets/images/logo.svg" alt="" class="nav-logo-img">
-            </a>
-
-            <div class="nav-menu flexitem" id="nav-menu">
-                <ul class="nav-list flexitem">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item hide-item">
-                        <a href="shop.html" class="nav-link active-link">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="accounts.html" class="nav-link">My Account</a>
-                    </li>
-                    <li class="nav-item hide-item">
-                        <a href="compare.html" class="nav-link">Compare</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="login-register.html" class="nav-link">Login</a>
-                    </li>
-                </ul>
-
-                <div class="header-search">
-                    <input type="text" placeholder="Search Products..." class="form-input">
-                    <button class="search-btn">
-                        <img src="assets/images/search.png" alt="">
-                    </button>
-                </div>
+            <div class="header-search">
+                <input type="text" placeholder="Search Products..." class="form-input" id="searchInput" autocomplete="off">
+                <div id="searchSuggestions" class="suggestions-dropdown"></div>
+                <button class="search-btn">
+                    <img src="assets/images/search.png" alt="">
+                </button>
             </div>
-
-            <div class="header-user-action flexitem">
-                <a href="whishlist.html" class="header-action-btn">
-                    <img src="assets/images/icon-heart.svg" alt="">
-                    <span class="count">3</span>
-                </a>
-                <a href="cart.html" class="header-action-btn">
-                    <img src="assets/images/icon-cart.svg" alt="">
-                    <span class="count">5</span>
-                </a>
-            </div>
+            <button onclick="location.href='cart.html'" class="header-cart-btn" aria-label="View Cart">
+                <img src="assets/images/icon-cart.svg" alt="Cart">
+                <span class="cart-count">0</span>
+            </button>
         </nav>
     </header>
 
