@@ -259,6 +259,61 @@ table {
   margin: 0 auto;
 }
 
+/* Search Suggestions Dropdown */
+.suggestions-dropdown {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1002;
+  display: none;
+  border: 1px solid var(--border-color-alt);
+}
+
+.suggestions-dropdown.active {
+  display: block;
+}
+
+.suggestion-item {
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.suggestion-item:hover {
+  background: var(--first-color-alt);
+}
+
+.suggestion-item:not(:last-child) {
+  border-bottom: 1px solid var(--border-color-alt);
+}
+
+/* Scrollbar styling for suggestions dropdown */
+.suggestions-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.suggestions-dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.suggestions-dropdown::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
 .header {
   position: fixed;
   top: 0;

@@ -8,20 +8,27 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header class="header">
-        <nav class="navbar">
-          <div class="nav-logo">
-            <!-- Changed to action button with logo -->
-            <button class="logo-action-btn" onclick="location.href='shop.html'" aria-label="Go to Shop">
-              <img src="assets/images/logo.png" alt="Logo" class="nav-logo-img">
-            </button>
-          </div>
-          <!-- ...existing code... -->
-        </nav>
-    </header>
-    <div class="header-search">
-        <input type="text" class="form-input" placeholder="Search products" />
-        <!-- ...existing code... -->
+<!-- ...existing code... -->
+<header class="header" id="header">
+  <nav class="navbar container">
+    <div class="nav-logo">
+      <a href="shop.html">
+        <img src="assets/images/logo.png" alt="Logo" class="nav-logo-img">
+      </a>
     </div>
+    <div class="header-search">
+      <input type="text" placeholder="Search Products..." class="form-input" id="searchInput">
+      <div id="searchSuggestions" class="suggestions-dropdown"></div>
+      <button class="search-btn">
+        <img src="assets/images/search.png" alt="">
+      </button>
+    </div>
+    <button onclick="location.href='cart.html'" class="header-cart-btn" aria-label="View Cart">
+      <img src="assets/images/icon-cart.svg" alt="Cart">
+      <span class="cart-count">0</span>
+    </button>
+  </nav>
+</header>
+<!-- ...existing code... -->
 </body>
 </html>

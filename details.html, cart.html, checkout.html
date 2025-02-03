@@ -4,19 +4,28 @@
     // ...existing code...
 </head>
 <body>
+    <!-- ================================================ HEADER ================================================ -->
     <header class="header" id="header">
-        <div class="header-top">
-            <div class="container">
-                <div class="header-container flexitem">
-                    <!-- ...existing header-top content... -->
-                </div>
+        <nav class="navbar container">
+            <div class="nav-logo">
+                <a href="shop.html">
+                    <img src="assets/images/logo.png" alt="Logo" class="nav-logo-img">
+                </a>
             </div>
-        </div>
-        <div class="container">
-            <nav class="navbar flexitem">
-                <!-- ...existing navbar content... -->
-            </nav>
-        </div>
+            
+            <div class="header-search">
+                <input type="text" placeholder="Search Products..." class="form-input" id="searchInput">
+                <div id="searchSuggestions" class="suggestions-dropdown"></div>
+                <button class="search-btn">
+                    <img src="assets/images/search.png" alt="">
+                </button>
+            </div>
+            
+            <button onclick="location.href='cart.html'" class="header-cart-btn" aria-label="View Cart">
+                <img src="assets/images/icon-cart.svg" alt="Cart">
+                <span class="cart-count">0</span>
+            </button>
+        </nav>
     </header>
     <!-- ...rest of existing code... -->
 </body>

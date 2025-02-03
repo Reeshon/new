@@ -121,3 +121,66 @@ detialTabs.forEach((detailTab) => {
     detailTab.classList.add("active-tab");
   });
 });
+
+// Sample product data - simplify to just title and URL
+const products = [
+  { title: "Coming Soon Product 1", url: "details.html?id=1" },
+  { title: "Coming Soon Product 2", url: "details.html?id=2" },
+  // Add more products as needed
+];
+
+// Search functionality
+document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('searchInput');
+  const suggestionsContainer = document.getElementById('searchSuggestions');
+
+  if (!searchInput || !suggestionsContainer) return;
+
+  function filterProducts(query) {
+    return products.filter(product => 
+      product.title.toLowerCase().includes(query.toLowerCase())
+    ).slice(0, 6); // Limit to 6 suggestions
+  }
+
+  function renderSuggestions(suggestions) {
+    suggestionsContainer.innerHTML = '';
+    suggestions.forEach(product => {
+      const div = document.createElement('div');
+      div.className = 'suggestion-item';
+      div.textContent = product.title;
+      div.addEventListener('click', () => {
+        window.location.href = product.url;
+      });
+      suggestionsContainer.appendChild(div);
+    });
+  }
+
+  let debounceTimeout;
+  searchInput.addEventListener('input', () => {
+    clearTimeout(debounceTimeout);
+    debounceTimeout = setTimeout(() => {
+      const query = searchInput.value.trim();
+      if (query.length > 0) {
+        const suggestions = filterProducts(query);
+        renderSuggestions(suggestions);
+        suggestionsContainer.classList.add('active');
+      } else {
+        suggestionsContainer.classList.remove('active');
+      }
+    }, 300);
+  });
+
+  // Close suggestions when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!searchInput.contains(e.target) && !suggestionsContainer.contains(e.target)) {
+      suggestionsContainer.classList.remove('active');
+    }
+  });
+
+  // Close suggestions on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      suggestionsContainer.classList.remove('active');
+    }
+  });
+});
