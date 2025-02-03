@@ -2,11 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Immediate redirect -->
     <meta http-equiv="refresh" content="0; url='shop.html'" />
     <title>Page Redirect</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <!-- All original home screen code removed -->
+    <header class="header">
+        <nav class="navbar">
+          <div class="nav-logo">
+            <!-- Changed to action button with logo -->
+            <button class="logo-action-btn" onclick="location.href='shop.html'" aria-label="Go to Shop">
+              <img src="assets/images/logo.png" alt="Logo" class="nav-logo-img">
+            </button>
+          </div>
+          <!-- ...existing code... -->
+        </nav>
+    </header>
     <div class="header-search">
         <input type="text" class="form-input" placeholder="Search products" />
         <!-- ...existing code... -->
